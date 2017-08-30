@@ -4,14 +4,14 @@ platforms: .Net
 author: alvadb
 ---
 
-# Getting Started with Cosmosdb - Manage H A Document D B - in .Net #
+# Getting Started with Cosmosdb - Manage H A Cosmos D B - in .Net #
 
-          Azure DocumentDB sample -
-           - Create a DocumentDB configured with a single read location
-           - Get the credentials for the DocumentDB
-           - Update the DocumentDB with additional read locations
-           - add collection to the DocumentDB with throughput 4000
-           - Delete the DocumentDB
+          Azure CosmosDB sample -
+           - Create a CosmosDB configured with a single read location
+           - Get the credentials for the CosmosDB
+           - Update the CosmosDB with additional read locations
+           - add collection to the CosmosDB with throughput 4000
+           - Delete the CosmosDB
 
 
 ## Running this Sample ##

@@ -5,8 +5,8 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Management.Compute.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent.Models;
-using Microsoft.Azure.Management.DocumentDB.Fluent;
-using Microsoft.Azure.Management.DocumentDB.Fluent.Models;
+using Microsoft.Azure.Management.CosmosDB.Fluent;
+using Microsoft.Azure.Management.CosmosDB.Fluent.Models;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Network.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent;
@@ -19,7 +19,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace HADocumentDB
+namespace HACosmosDB
 {
     public class Program
     {
@@ -27,12 +27,12 @@ namespace HADocumentDB
         const String COLLECTION_ID = "TestCollection";
 
         /**
-         * Azure DocumentDB sample -
-         *  - Create a DocumentDB configured with a single read location
-         *  - Get the credentials for the DocumentDB
-         *  - Update the DocumentDB with additional read locations
-         *  - add collection to the DocumentDB with throughput 4000
-         *  - Delete the DocumentDB
+         * Azure CosmosDB sample -
+         *  - Create a CosmosDB configured with a single read location
+         *  - Get the credentials for the CosmosDB
+         *  - Update the CosmosDB with additional read locations
+         *  - add collection to the CosmosDB with throughput 4000
+         *  - Delete the CosmosDB
          */
         public static void RunSample(IAzure azure)
         {
@@ -42,10 +42,10 @@ namespace HADocumentDB
             try
             {
                 //============================================================
-                // Create a DocumentDB.
+                // Create a CosmosDB.
 
-                Console.WriteLine("Creating a DocumentDB...");
-                IDocumentDBAccount documentDBAccount = azure.DocumentDBAccounts.Define(docDBName)
+                Console.WriteLine("Creating a CosmosDB...");
+                ICosmosDBAccount cosmosDBAccount = azure.CosmosDBAccounts.Define(docDBName)
                         .WithRegion(Region.USWest)
                         .WithNewResourceGroup(rgName)
                         .WithKind(DatabaseAccountKind.GlobalDocumentDB)
@@ -55,41 +55,41 @@ namespace HADocumentDB
                         .WithIpRangeFilter("13.91.6.132,13.91.6.1/24")
                         .Create();
 
-                Console.WriteLine("Created DocumentDB");
-                Utilities.Print(documentDBAccount);
+                Console.WriteLine("Created CosmosDB");
+                Utilities.Print(cosmosDBAccount);
 
                 //============================================================
                 // Update document db with three additional read regions
 
-                Console.WriteLine("Updating DocumentDB with three additional read replication regions");
-                documentDBAccount = documentDBAccount.Update()
+                Console.WriteLine("Updating CosmosDB with three additional read replication regions");
+                cosmosDBAccount = cosmosDBAccount.Update()
                         .WithReadReplication(Region.AsiaEast)
                         .WithReadReplication(Region.AsiaSouthEast)
                         .WithReadReplication(Region.UKSouth)
                         .Apply();
 
-                Console.WriteLine("Updated DocumentDB");
-                Utilities.Print(documentDBAccount);
+                Console.WriteLine("Updated CosmosDB");
+                Utilities.Print(cosmosDBAccount);
 
                 //============================================================
-                // Get credentials for the DocumentDB.
+                // Get credentials for the CosmosDB.
 
-                Console.WriteLine("Get credentials for the DocumentDB");
-                DatabaseAccountListKeysResultInner databaseAccountListKeysResult = documentDBAccount.ListKeys();
+                Console.WriteLine("Get credentials for the CosmosDB");
+                DatabaseAccountListKeysResultInner databaseAccountListKeysResult = cosmosDBAccount.ListKeys();
                 string masterKey = databaseAccountListKeysResult.PrimaryMasterKey;
-                string endPoint = documentDBAccount.DocumentEndpoint;
+                string endPoint = cosmosDBAccount.DocumentEndpoint;
 
                 //============================================================
-                // Connect to DocumentDB and add a collection
+                // Connect to CosmosDB and add a collection
 
                 Console.WriteLine("Connecting and adding collection");
                 //CreateDBAndAddCollection(masterKey, endPoint);
 
                 //============================================================
-                // Delete DocumentDB
-                Console.WriteLine("Deleting the DocumentDB");
-                azure.DocumentDBAccounts.DeleteById(documentDBAccount.Id);
-                Console.WriteLine("Deleted the DocumentDB");
+                // Delete CosmosDB
+                Console.WriteLine("Deleting the CosmosDB");
+                azure.CosmosDBAccounts.DeleteById(cosmosDBAccount.Id);
+                Console.WriteLine("Deleted the CosmosDB");
             }
             finally
             {
