@@ -4,7 +4,7 @@ platforms: .Net
 author: alvadb
 ---
 
-# Getting Started with Cosmosdb - Manage H A Cosmos D B - in .Net #
+# Getting Started with Cosmosdb - Manage HA Cosmos DB - in .Net #
 
           Azure CosmosDB sample -
            - Create a CosmosDB configured with a single read location
