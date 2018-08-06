@@ -1,10 +1,10 @@
 ---
-services: Cosmosdb
-platforms: .Net
+services: Cosmos-DB
+platforms: dotnet
 author: alvadb
 ---
 
-# Getting Started with Cosmosdb - Manage HA Cosmos DB - in .Net #
+# Create a DocumentDB and configure it for high availability using C# #
 
           Azure CosmosDB sample -
            - Create a CosmosDB configured with a single read location
@@ -18,7 +18,7 @@ author: alvadb
 
 To run this sample:
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md).
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md).
 
     git clone https://github.com/Azure-Samples/cosmosdb-dotnet-create-documentdb-and-configure-for-high-availability.git
 
