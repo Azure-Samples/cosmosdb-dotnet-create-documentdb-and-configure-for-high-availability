@@ -4,19 +4,19 @@ languages:
 - csharp
 products:
 - azure
-services: Cosmos-DB
-platforms: dotnet
-author: yaohaizh
+extensions:
+- services: Cosmos-DB
+- platforms: dotnet
 ---
 
 # Create a DocumentDB and configure it for high availability using C# #
 
-          Azure CosmosDB sample -
-           - Create a CosmosDB configured with a single read location
-           - Get the credentials for the CosmosDB
-           - Update the CosmosDB with additional read locations
-           - add collection to the CosmosDB with throughput 4000
-           - Delete the CosmosDB
+ Azure CosmosDB sample -
+  - Create a CosmosDB configured with a single read location
+  - Get the credentials for the CosmosDB
+  - Update the CosmosDB with additional read locations
+  - add collection to the CosmosDB with throughput 4000
+  - Delete the CosmosDB
 
 
 ## Running this Sample ##
