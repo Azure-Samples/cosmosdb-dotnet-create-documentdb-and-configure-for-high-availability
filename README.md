@@ -7,6 +7,7 @@ products:
 extensions:
 - services: Cosmos-DB
 - platforms: dotnet
+description: "Azure CosmosDB sample."
 ---
 
 # Create a DocumentDB and configure it for high availability using C# #
