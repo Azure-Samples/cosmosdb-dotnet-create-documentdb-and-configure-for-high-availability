@@ -7,12 +7,12 @@ products:
 extensions:
 - services: Cosmos-DB
 - platforms: dotnet
-description: "Azure CosmosDB sample."
+description: "Azure Cosmos DB sample."
 ---
 
 # Create a DocumentDB and configure it for high availability (C#)
 
- Azure CosmosDB sample -
+ Azure Cosmos DB sample -
   - Create a CosmosDB configured with a single read location
   - Get the credentials for the CosmosDB
   - Update the CosmosDB with additional read locations
